@@ -26,13 +26,20 @@ public class Menu {
 	static final int CREAR_HABITACION=2;
 	
 	
-	public void menuPrincipal() {
+	public static void menuPrincipal() {
 		System.out.println(GESTIONAR_CLIENTES + ".- Gestionar Clientes" );
 		System.out.println(GESTIONAR_RESERVAS + ".- Gestionar Reservas" );
 		System.out.println(GESTIONAR_HOTELES + ".- Gestionar Hoteles" );
+		System.out.println(SALIR + ".- Salir" );
+	}
+	
+	public static void menuClientes() {
+		System.out.println(REGISTRAR_CLIENTES + ".- Registrar Clientes" );
+		System.out.println(DAR_BAJA + ".- Dar de baja al clientes" );
+		System.out.println(MODIFICAR_CLIENTE + ".- Modificar Clientes" );
 
 
-		
+
 	}
 
 }
