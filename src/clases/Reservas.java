@@ -11,7 +11,7 @@ public class Reservas {
 	private Date hasta;
 	
 	
-	
+	//Getters Y Setters
 	public int getId_habitacion() {
 		return id_habitacion;
 	}
@@ -44,5 +44,9 @@ public class Reservas {
 	}
 	
 	
+	//Constructores
+		public Reservas () {
+			
+		}
 	
 }
