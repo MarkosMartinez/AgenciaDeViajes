@@ -26,7 +26,7 @@ public class GestorClientes {
 				System.out.println("\nAgur!");
 				break;
 			default:
-				System.out.println(Colores.ROJO + "Opcion no valida!\nIntentalo de nuevo." + Colores.NEGRO);
+				Visor.mostrarMensajeError("Opcion no valida!\nIntentalo de nuevo.");
 			}
 
 		} while (opcion_menu != Menu.SALIR);
