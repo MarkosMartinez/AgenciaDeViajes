@@ -42,6 +42,9 @@ public class Habitacciones {
 	}
 	
 	
-
+//constructores
+	public Habitacciones () {
+		
+	}
 	
 }
