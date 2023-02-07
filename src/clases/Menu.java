@@ -37,12 +37,25 @@ public class Menu {
 		System.out.println(REGISTRAR_CLIENTES + ".- Registrar Clientes" );
 		System.out.println(DAR_BAJA + ".- Dar de baja al clientes" );
 		System.out.println(MODIFICAR_CLIENTE + ".- Modificar Clientes" );
+		System.out.println(SALIR + ".- Salir" );
+
 	}
 	
 	public static void menuReserva() {
 		System.out.println(REALIZAR_RESERVA + ".- Realizar Reserva" );
 		System.out.println(ANULAR_RESERVA + ".- Anular Reserva" );
+		System.out.println(SALIR + ".- Salir" );
+
 		
 	}
+	
+	public static void menuHoteles() {
+		System.out.println(REGISTRAR_HOTEL + ".- Registrar Hotel" );
+		System.out.println(SALIR + ".- Salir" );
+
+
+	}
+	
+	
 
 }
