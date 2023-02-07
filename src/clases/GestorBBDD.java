@@ -18,5 +18,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		alta.execute();
 		conector.cerrar();	
 	}
+	
+	
 
 }
