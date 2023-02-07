@@ -9,7 +9,7 @@ public class GestorReserva {
 		int opcion_menu;
 
 		do {
-			Menu.menuPrincipal();
+			Menu.menuReserva();
 			opcion_menu = Integer.parseInt(scan.nextLine());
 
 			switch (opcion_menu) {

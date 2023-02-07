@@ -7,7 +7,7 @@ public class GestorClientes {
 		int opcion_menu;
 
 		do {
-			Menu.menuClientes();;
+			Menu.menuClientes();
 			opcion_menu = Integer.parseInt(scan.nextLine());
 
 			switch (opcion_menu) {
