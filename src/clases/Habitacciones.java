@@ -9,7 +9,7 @@ public class Habitacciones {
 	private double precio;
 	
 	
-	///getter and setters
+	///Getter Y Setters
 	public int getId() {
 		return id;
 	}
@@ -42,7 +42,8 @@ public class Habitacciones {
 	}
 	
 	
-//constructores
+	
+	//Constructores
 	public Habitacciones () {
 		
 	}

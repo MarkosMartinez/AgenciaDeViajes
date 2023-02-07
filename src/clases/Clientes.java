@@ -1,6 +1,7 @@
 package clases;
 
 public class Clientes {
+	
 	private String dni;
 	private String nombre;
 	private String apellidos;
@@ -8,7 +9,7 @@ public class Clientes {
 	private String localidad;
 	
 	
-	//getter and setters
+	//Getters Y Setters
 	public String getDni() {
 		return dni;
 	}
@@ -41,12 +42,13 @@ public class Clientes {
 	}
 	
 	
-	//constructores
 	
+	//Constructores
 	public Clientes () {
 		
 	}
 	
+	//TODO Eliminar esto?
 	public Clientes(String dni, String nombre, String apellidos, String direccion, String localidad) {
 		this.dni=dni;
 		this.nombre=nombre;

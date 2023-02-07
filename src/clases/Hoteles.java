@@ -10,7 +10,7 @@ public class Hoteles {
 	private String compania;
 	
 	
-	
+	//Getters y Setters
 	public int getId() {
 		return id;
 	}
@@ -49,5 +49,10 @@ public class Hoteles {
 	}
 
 	
+	
+	//Constructores
+		public Hoteles () {
+			
+		}
 	
 }
