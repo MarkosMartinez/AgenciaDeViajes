@@ -9,7 +9,7 @@ public class Conector {
 	private Connection conexion;
 	
 	private static final String HOST = "localhost";
-	private static final String BBDD = "biblioteca";
+	private static final String BBDD = "agencia_viajes";
 	private static final String USERNAME = "root";
 	private static final String PASSWORD = "";
 	
@@ -34,6 +34,9 @@ public class Conector {
 		}
 	}
 	
+	
+	//Getters Y Setters
+	
 	public Connection getCon() {
 		return conexion;
 	}
@@ -41,5 +44,5 @@ public class Conector {
 	public void setCon(Connection con) {
 		this.conexion = con;
 	}
-	
+	//Fin de Getters y Setters
 }
