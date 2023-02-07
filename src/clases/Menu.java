@@ -2,28 +2,27 @@ package clases;
 
 public class Menu {
 	
-	//menu principal
-	static final int GESTIONAR_CLIENTES=1;
-	static final int GESTIONAR_RESERVAS=2;
-	static final int GESTIONAR_HOTELES=3;
-	
 	//SALIR
+	public static final int SALIR = 0;
 	
-	static final int SALIR =0;
+	//menu principal
+	public static final int GESTIONAR_CLIENTES = 1;
+	public static final int GESTIONAR_RESERVAS = 2;
+	public static final int GESTIONAR_HOTELES = 3;
 	
 	//MENU CLIENTES		
-	static final int REGISTRAR_CLIENTES=1;
-	static final int DAR_BAJA=2;
-	static final int MODIFICAR_CLIENTE=3;
+	public static final int REGISTRAR_CLIENTES = 1;
+	public static final int DAR_BAJA = 2;
+	public static final int MODIFICAR_CLIENTE = 3;
 	
 	
 	// MENU RESERVA
-	static final int REALIZAR_RESERVA=1;
-	static final int ANULAR_RESERVA=2;
+	public static final int REALIZAR_RESERVA = 1;
+	public static final int ANULAR_RESERVA = 2;
 	
 	//MENU HOTELES
-	static final int REGISTRAR_HOTEL=1;
-	static final int CREAR_HABITACION=2;
+	public static final int REGISTRAR_HOTEL = 1;
+	public static final int CREAR_HABITACION = 2;
 	
 	
 	public static void menuPrincipal() {

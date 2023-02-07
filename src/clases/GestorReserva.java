@@ -9,7 +9,7 @@ public class GestorReserva {
 		int opcion_menu;
 
 		do {
-			Menu.menuPrincipal();
+			Menu.menuReserva();
 			opcion_menu = Integer.parseInt(scan.nextLine());
 
 			switch (opcion_menu) {
@@ -24,7 +24,7 @@ public class GestorReserva {
 				System.out.println("\nAgur!");
 				break;
 			default:
-				System.out.println(Colores.ROJO + "Opcion no valida!\nIntentalo de nuevo." + Colores.NEGRO);
+				Visor.mostrarMensajeError("Opcion no valida!\nIntentalo de nuevo.");
 			}
 
 		} while (opcion_menu != Menu.SALIR);
