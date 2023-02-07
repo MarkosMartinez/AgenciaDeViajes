@@ -19,6 +19,6 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		conector.cerrar();	
 	}
 	
-	
+	//TODO Crear el get del cliente (le llega el DNI)
 
 }
