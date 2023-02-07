@@ -56,6 +56,10 @@ public class Menu {
 
 	}
 	
-	
+	public static void menuHabitaciones() {
+		System.out.println(CREAR_HABITACION + ".- Crear habitacion Hotel" );
+		System.out.println(SALIR + ".- Salir" );
+
+	}
 
 }
