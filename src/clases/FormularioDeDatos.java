@@ -35,8 +35,9 @@ public class FormularioDeDatos {
 	}
 	
 	
-	public static Clientes datosModificarCliente(Clientes modificarCliente, Scanner scan) {
+	public static Clientes datosModificarCLiente(Clientes modificarCliente) {
 		Clientes cliente = new Clientes();
+		Scanner scan = new Scanner(System.in);
 		System.out.println("---MODIFICA TUS DATOS---");
 		System.out.println("Indica tu  nuevo nombre:");
 		String nombreCliente=scan.nextLine();
@@ -47,7 +48,7 @@ public class FormularioDeDatos {
 		System.out.println("Indica tu nuevo  localidad:");
 		String localidadCliente=scan.nextLine();
 		
-		cliente.setDni(modificarCliente.getDni());
+	
 		cliente.setNombre(nombreCliente);
 		cliente.setApellidos(apellidoCliente);
 		cliente.setDireccion(direccionCliente);
