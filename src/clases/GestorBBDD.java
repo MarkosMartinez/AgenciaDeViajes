@@ -20,8 +20,6 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		conector.cerrar();	
 	}
 	
-	//TODO Crear el get del cliente (le llega el DNI)
-	
 	public  Clientes getCliente(String dni) throws SQLException {
 		Clientes cliente = new Clientes();
 		conector.conectar();
@@ -70,7 +68,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 /*---------------------A PARTIR DE AQUI ES PARA HOTELES */
 	public void registrarHotel(Hoteles hotel) throws SQLException{
 		conector.conectar();
-		PreparedStatement registrarHotel = conector.getCon().prepareStatement("INSERT INTO hoteles (cif, nombre, gerente, estrellas, compania) VALUES (?,?,?,?);");
+		PreparedStatement registrarHotel = conector.getCon().prepareStatement("INSERT INTO hoteles (cif, nombre, gerente, estrellas, compania) VALUES (?,?,?,?,?);");
 		registrarHotel.setString(1,hotel.getCif());
 		registrarHotel.setString(2, hotel.getNombre());
 		registrarHotel.setString(3, hotel.getGerente());
@@ -96,9 +94,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		hotel.setGerente(resultado.getString("gerente"));
 		hotel.setEstrellas(resultado.getInt("estrellas"));
 
-
 		}else {
-			Visor.mostrarMensajeError("Cliente no encontrado\nporfavor vuelve a intentarlo!");
 			hotel.setId(-1);
 		}
 		

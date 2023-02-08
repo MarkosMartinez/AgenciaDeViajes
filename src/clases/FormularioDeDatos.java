@@ -35,9 +35,8 @@ public class FormularioDeDatos {
 	}
 	
 	
-	public static Clientes datosModificarCLiente(Clientes modificarCliente) {
+	public static Clientes datosModificarCliente(Clientes modificarCliente, Scanner scan) {
 		Clientes cliente = new Clientes();
-		Scanner scan = new Scanner(System.in);
 		System.out.println("---MODIFICA TUS DATOS---");
 		System.out.println("Indica tu  nuevo nombre:");
 		String nombreCliente=scan.nextLine();
@@ -48,7 +47,7 @@ public class FormularioDeDatos {
 		System.out.println("Indica tu nuevo  localidad:");
 		String localidadCliente=scan.nextLine();
 		
-	
+		cliente.setDni(modificarCliente.getDni());
 		cliente.setNombre(nombreCliente);
 		cliente.setApellidos(apellidoCliente);
 		cliente.setDireccion(direccionCliente);
@@ -56,5 +55,26 @@ public class FormularioDeDatos {
 		
 		return cliente;
 				
+	}
+
+	//------------------------------------------------
+	public static int pedirIdHotel(Scanner scan) {
+		System.out.println("Escribe el id del hotel: ");
+		return Integer.parseInt(scan.nextLine());
+	}
+
+	public static Hoteles pedirDatosHotel(Scanner scan) {
+		Hoteles nuevoHotel = new Hoteles();
+		System.out.println("Escribe el CIF del hotel: ");
+		nuevoHotel.setCif(scan.nextLine());
+		System.out.println("Escribe el Nombre del hotel: ");
+		nuevoHotel.setNombre(scan.nextLine());
+		System.out.println("Escribe el Gerente del hotel: ");
+		nuevoHotel.setGerente(scan.nextLine());
+		System.out.println("Escribe la cantidad de estrellas del hotel: ");
+		nuevoHotel.setEstrellas(Integer.parseInt(scan.nextLine()));
+		System.out.println("Escribe el nombre de compañia del hotel: ");
+		nuevoHotel.setCompania(scan.nextLine());
+		return nuevoHotel;
 	}
 }

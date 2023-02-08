@@ -1,11 +1,13 @@
 package clases;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class GestorHoteles {
 
-	public static void run(Scanner scan) {
+	public static void run(Scanner scan) throws SQLException {
 		int opcion;
+		GestorBBDD gestorbbdd = new GestorBBDD();
 		
 		do {
 			Menu.menuHoteles();
@@ -13,7 +15,12 @@ public class GestorHoteles {
 			
 			switch (opcion) {
 			case Menu.REGISTRAR_HOTEL:
-				
+				Hoteles registrarHotel = gestorbbdd.getHoteles(FormularioDeDatos.pedirIdHotel(scan));
+				if(registrarHotel.getId() == -1) {
+					registrarHotel = FormularioDeDatos.pedirDatosHotel(scan);
+					gestorbbdd.registrarHotel(registrarHotel);
+					Visor.mostrarMensajeCorrecto("Hotel registado!");
+				}
 				
 				break;
 			case Menu.CREAR_HABITACION:

@@ -19,11 +19,11 @@ public class GestorAgencia {
 				
 				break;
 			case Menu.GESTIONAR_RESERVAS:
-				
+				GestorReserva.run(scan);
 				
 				break;
 			case Menu.GESTIONAR_HOTELES:
-				
+				GestorHoteles.run(scan);
 				
 				break;
 			case Menu.SALIR:
