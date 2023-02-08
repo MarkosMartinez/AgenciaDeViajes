@@ -15,12 +15,9 @@ public class GestorHoteles {
 			
 			switch (opcion) {
 			case Menu.REGISTRAR_HOTEL:
-				Hoteles registrarHotel = gestorbbdd.getHoteles(FormularioDeDatos.pedirIdHotel(scan));
-				if(registrarHotel.getId() == -1) {
-					registrarHotel = FormularioDeDatos.pedirDatosHotel(scan);
+					Hoteles registrarHotel = FormularioDeDatos.pedirDatosHotel(scan);
 					gestorbbdd.registrarHotel(registrarHotel);
 					Visor.mostrarMensajeCorrecto("Hotel registado!");
-				}
 				
 				break;
 			case Menu.CREAR_HABITACION:

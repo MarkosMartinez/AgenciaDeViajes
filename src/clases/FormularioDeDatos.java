@@ -71,7 +71,7 @@ public class FormularioDeDatos {
 		nuevoHotel.setNombre(scan.nextLine());
 		System.out.println("Escribe el Gerente del hotel: ");
 		nuevoHotel.setGerente(scan.nextLine());
-		System.out.println("Escribe la cantidad de estrellas del hotel: ");
+		System.out.println("Escribe la cantidad de estrellas del hotel: "); //TODO no dejar mas de 5 estrellas y menos de 1
 		nuevoHotel.setEstrellas(Integer.parseInt(scan.nextLine()));
 		System.out.println("Escribe el nombre de compañia del hotel: ");
 		nuevoHotel.setCompania(scan.nextLine());

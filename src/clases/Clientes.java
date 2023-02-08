@@ -48,13 +48,4 @@ public class Clientes {
 		
 	}
 	
-	//TODO Eliminar esto?
-	public Clientes(String dni, String nombre, String apellidos, String direccion, String localidad) {
-		this.dni=dni;
-		this.nombre=nombre;
-		this.apellidos=apellidos;
-		this.direccion=direccion;
-		this.localidad=localidad;
-	}
-	
 }
