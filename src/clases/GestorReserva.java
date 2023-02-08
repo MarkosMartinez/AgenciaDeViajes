@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class GestorReserva {
 	Scanner scan = new Scanner(System.in);
-	public void run() {		
+	public static void run(Scanner scan) {		
 		
 		int opcion_menu;
 

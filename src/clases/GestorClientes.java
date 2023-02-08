@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class GestorClientes {
-	public void run(Scanner scan) throws SQLException {
+	public static void run(Scanner scan) throws SQLException {
 		int opcion_menu;
 		GestorBBDD gestor = new GestorBBDD();
 

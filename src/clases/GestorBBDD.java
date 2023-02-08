@@ -14,7 +14,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		alta.setString(2, cliente.getNombre());
 		alta.setString(3, cliente.getApellidos());
 		alta.setString(4, cliente.getDireccion());
-		alta.setString(4, cliente.getLocalidad());
+		alta.setString(5, cliente.getLocalidad());
 		alta.execute();
 		conector.cerrar();	
 	}

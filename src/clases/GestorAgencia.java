@@ -1,10 +1,11 @@
 package clases;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class GestorAgencia {
 	Scanner scan = new Scanner(System.in);
-	public void run() {		
+	public void run() throws SQLException {		
 		
 		int opcion_menu;
 
@@ -14,6 +15,7 @@ public class GestorAgencia {
 
 			switch (opcion_menu) {
 			case Menu.GESTIONAR_CLIENTES:
+				GestorClientes.run(scan);
 				
 				break;
 			case Menu.GESTIONAR_RESERVAS:
