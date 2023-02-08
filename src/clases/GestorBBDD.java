@@ -68,20 +68,44 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 	}
 	
 /*---------------------A PARTIR DE AQUI ES PARA HOTELES */
-	public void RegistrarHotel(Hoteles hoteles) throws SQLException{
+	public void registrarHotel(Hoteles hotel) throws SQLException{
 		conector.conectar();
 		PreparedStatement registrarHotel = conector.getCon().prepareStatement("INSERT INTO hoteles (cif, nombre, gerente, estrellas, compania) VALUES (?,?,?,?);");
-		registrarHotel.setString(1,hoteles.getCif());
-		registrarHotel.setString(2, hoteles.getNombre());
-		registrarHotel.setString(3, hoteles.getGerente());
-		registrarHotel.setInt(4, hoteles.getEstrellas());
-		registrarHotel.setString(5, hoteles.getCompania());
+		registrarHotel.setString(1,hotel.getCif());
+		registrarHotel.setString(2, hotel.getNombre());
+		registrarHotel.setString(3, hotel.getGerente());
+		registrarHotel.setInt(4, hotel.getEstrellas());
+		registrarHotel.setString(5, hotel.getCompania());
 
 		registrarHotel.execute();
 		conector.cerrar();	
 	}
 	
 	
+	
+	public  Hoteles getHoteles(int id) throws SQLException {
+		Hoteles hotel= new Hoteles();
+		conector.conectar();
+		PreparedStatement gettear =conector.getCon().prepareStatement("SELECT * FROM clientes WHERE id =?");
+		gettear.setInt(1, id);
+		ResultSet resultado=gettear.executeQuery();
+		if(resultado.next()) {
+		hotel.setId(resultado.getInt("id"));
+		hotel.setCif(resultado.getString("cif"));
+		hotel.setNombre(resultado.getString("nombre"));
+		hotel.setGerente(resultado.getString("gerente"));
+		hotel.setEstrellas(resultado.getInt("estrellas"));
+
+
+		}else {
+			Visor.mostrarMensajeError("Cliente no encontrado\nporfavor vuelve a intentarlo!");
+			hotel.setId(-1);
+		}
+		
+		conector.cerrar();
+		return hotel;
+		
+	}
 	
 	
 }
