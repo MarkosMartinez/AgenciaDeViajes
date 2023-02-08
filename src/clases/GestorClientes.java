@@ -27,7 +27,12 @@ public class GestorClientes {
 				
 				break;
 			case Menu.MODIFICAR_CLIENTE:
-				
+				Clientes modificarCliente = gestorbbdd.getCliente(FormularioDeDatos.pedirDniClientes(scan));
+				if(modificarCliente.getDni() != "-1") {
+					Clientes modificarNuevoCliente = Formulario.modificarCliente(modificarCliente);
+					gestorbbdd.modificarCliente(modificarNuevoCliente);
+					Visor.mostrarMensajeCorrecto("Cliente actualizado!");
+				}
 				
 				break;
 			case Menu.SALIR:
