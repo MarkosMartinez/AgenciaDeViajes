@@ -34,7 +34,7 @@ public class Menu {
 	
 	public static void menuClientes() {
 		System.out.println(REGISTRAR_CLIENTES + ".- Registrar Clientes" );
-		System.out.println(DAR_BAJA + ".- Dar de baja al clientes" );
+		System.out.println(DAR_BAJA + ".- Dar de baja al Cliente" );
 		System.out.println(MODIFICAR_CLIENTE + ".- Modificar Clientes" );
 		System.out.println(SALIR + ".- Salir" );
 

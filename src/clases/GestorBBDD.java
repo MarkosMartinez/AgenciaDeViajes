@@ -36,7 +36,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		cliente.setLocalidad(resultado.getString("direccion"));
 
 		}else {
-			Visor.mostrarMensajeError("cliente no encontrado, porfavor vuelva a intentarlo");
+			Visor.mostrarMensajeError("Cliente no encontrado\nporfavor vuelve a intentarlo!");
 			cliente.setDni("-1");
 		}
 		

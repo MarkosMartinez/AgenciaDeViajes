@@ -28,4 +28,9 @@ public class FormularioDeDatos {
 		
 		
 		}
+
+	public static String pedirDniClientes(Scanner scan) {
+		System.out.println("Escribe el DNI del cliente: ");
+		return scan.nextLine();
+	}
 }

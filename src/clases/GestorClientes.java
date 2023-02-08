@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class GestorClientes {
 	public static void run(Scanner scan) throws SQLException {
 		int opcion_menu;
-		GestorBBDD gestor = new GestorBBDD();
+		GestorBBDD gestorbbdd = new GestorBBDD();
 
 		do {
 			Menu.menuClientes();
@@ -15,11 +15,15 @@ public class GestorClientes {
 			switch (opcion_menu) {
 			case Menu.REGISTRAR_CLIENTES:
 				Clientes altaCliente = FormularioDeDatos.pedirDatosClientes(scan);
-				gestor.altaCliente(altaCliente);
+				gestorbbdd.altaCliente(altaCliente);
 				Visor.mostrarMensajeCorrecto("Usuario Insertado correctamente");
 				break;
 			case Menu.DAR_BAJA:
-				
+				Clientes bajaCliente = gestorbbdd.getCliente(FormularioDeDatos.pedirDniClientes(scan));
+				if(bajaCliente.getDni() != "-1") {
+					gestorbbdd.bajaCliente(bajaCliente);
+					Visor.mostrarMensajeCorrecto("Cliente eliminado!");
+				}
 				
 				break;
 			case Menu.MODIFICAR_CLIENTE:
