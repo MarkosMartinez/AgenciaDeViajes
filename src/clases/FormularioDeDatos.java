@@ -33,4 +33,28 @@ public class FormularioDeDatos {
 		System.out.println("Escribe el DNI del cliente: ");
 		return scan.nextLine();
 	}
+	
+	
+	public static Clientes datosModificarCLiente(Clientes modificarCliente) {
+		Clientes cliente = new Clientes();
+		Scanner scan = new Scanner(System.in);
+		System.out.println("---MODIFICA TUS DATOS---");
+		System.out.println("Indica tu  nuevo nombre:");
+		String nombreCliente=scan.nextLine();
+		System.out.println("Indica tu nuevo apellido:");
+		String apellidoCliente=scan.nextLine();
+		System.out.println("Indica tu nuevo direccion:");
+		String direccionCliente = scan.nextLine();
+		System.out.println("Indica tu nuevo  localidad:");
+		String localidadCliente=scan.nextLine();
+		
+	
+		cliente.setNombre(nombreCliente);
+		cliente.setApellidos(apellidoCliente);
+		cliente.setDireccion(direccionCliente);
+		cliente.setLocalidad(localidadCliente);
+		
+		return cliente;
+				
+	}
 }
