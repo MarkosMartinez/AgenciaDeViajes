@@ -67,6 +67,21 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		
 	}
 	
+/*---------------------A PARTIR DE AQUI ES PARA HOTELES */
+	public void RegistrarHotel(Hoteles hoteles) throws SQLException{
+		conector.conectar();
+		PreparedStatement registrarHotel = conector.getCon().prepareStatement("INSERT INTO hoteles (cif, nombre, gerente, estrellas, compania) VALUES (?,?,?,?);");
+		registrarHotel.setString(1,hoteles.getCif());
+		registrarHotel.setString(2, hoteles.getNombre());
+		registrarHotel.setString(3, hoteles.getGerente());
+		registrarHotel.setInt(4, hoteles.getEstrellas());
+		registrarHotel.setString(5, hoteles.getCompania());
+
+		registrarHotel.execute();
+		conector.cerrar();	
+	}
+	
+	
 	
 	
 }
