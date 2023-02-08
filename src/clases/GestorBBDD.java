@@ -56,7 +56,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 	
 	public void modificarCliente(Clientes nuevosDatosCliente) throws SQLException {
 		conector.conectar();
-		PreparedStatement pstModificar = conector.getCon().prepareStatement("UPDATE clientes SET nombre= ?, apellido= ?, direccion= ?, localidad=? WHERE dni = ?;");
+		PreparedStatement pstModificar = conector.getCon().prepareStatement("UPDATE clientes SET nombre= ?, apellidos= ?, direccion= ?, localidad=? WHERE dni = ?;");
 		pstModificar.setString(1, nuevosDatosCliente.getNombre());
 		pstModificar.setString(2, nuevosDatosCliente.getApellidos());
 		pstModificar.setString(3, nuevosDatosCliente.getDireccion());

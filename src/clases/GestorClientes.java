@@ -29,14 +29,13 @@ public class GestorClientes {
 			case Menu.MODIFICAR_CLIENTE:
 				Clientes modificarCliente = gestorbbdd.getCliente(FormularioDeDatos.pedirDniClientes(scan));
 				if(modificarCliente.getDni() != "-1") {
-					Clientes modificarNuevoCliente = Formulario.modificarCliente(modificarCliente);
+					Clientes modificarNuevoCliente = FormularioDeDatos.datosModificarCliente(modificarCliente, scan);
 					gestorbbdd.modificarCliente(modificarNuevoCliente);
 					Visor.mostrarMensajeCorrecto("Cliente actualizado!");
 				}
 				
 				break;
 			case Menu.SALIR:
-				System.out.println("\nAgur!");
 				break;
 			default:
 				Visor.mostrarMensajeError("Opcion no valida!\nIntentalo de nuevo.");
