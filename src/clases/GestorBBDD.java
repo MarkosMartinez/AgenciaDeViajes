@@ -44,4 +44,17 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		return cliente;
 		
 	}
+	
+	public void bajaCliente(Clientes cliente) throws SQLException {
+		
+		conector.conectar();
+		PreparedStatement pstDelete=conector.getCon().prepareStatement("DELETE FROM clientes WHERE dni =?");
+		pstDelete.setString(1, cliente.getDni());
+		pstDelete.execute();
+		conector.cerrar();
+		
+	}
+	
+	
+	
 }
