@@ -1,6 +1,7 @@
 package clases;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class GestorBBDD extends Conector{ //TODO Es extends?
@@ -20,5 +21,27 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 	}
 	
 	//TODO Crear el get del cliente (le llega el DNI)
+	
+	public  Clientes getCliente(String dni) throws SQLException {
+		Clientes cliente = new Clientes();
+		conector.conectar();
+		PreparedStatement gettear =conector.getCon().prepareStatement("SELECT * FROM clientes WHERE dni =?");
+		gettear.setString(1, dni);
+		ResultSet resultado=gettear.executeQuery();
+		if(resultado.next()) {
+		cliente.setDni(resultado.getString("dni"));
+		cliente.setNombre(resultado.getString("nombre"));
+		cliente.setApellidos(resultado.getString("apellidos"));
+		cliente.setDireccion(resultado.getString("direccion"));
+		cliente.setLocalidad(resultado.getString("direccion"));
 
+		}else {
+			Visor.mostrarMensajeError("cliente no encontrado, porfavor vuelva a intentarlo");
+			cliente.setDni("-1");
+		}
+		
+		conector.cerrar();
+		return cliente;
+		
+	}
 }
