@@ -50,14 +50,9 @@ public class Menu {
 	
 	public static void menuHoteles() {
 		System.out.println(REGISTRAR_HOTEL + ".- Registrar Hotel" );
-		System.out.println(SALIR + ".- Salir" );
-
-
-	}
-	
-	public static void menuHabitaciones() {
 		System.out.println(CREAR_HABITACION + ".- Crear habitacion Hotel" );
 		System.out.println(SALIR + ".- Salir" );
+
 
 	}
 

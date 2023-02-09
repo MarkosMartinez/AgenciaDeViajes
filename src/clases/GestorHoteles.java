@@ -21,7 +21,7 @@ public class GestorHoteles {
 				
 				break;
 			case Menu.CREAR_HABITACION:
-
+				
 				break;
 			case Menu.SALIR:
 				break;
