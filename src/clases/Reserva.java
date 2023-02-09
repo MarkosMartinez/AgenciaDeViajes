@@ -2,7 +2,7 @@ package clases;
 
 import java.util.Date;
 
-public class Reservas {
+public class Reserva {
 
 	private int id_habitacion;
 	private int id;
@@ -45,7 +45,7 @@ public class Reservas {
 	
 	
 	//Constructores
-		public Reservas () {
+		public Reserva () {
 			
 		}
 	

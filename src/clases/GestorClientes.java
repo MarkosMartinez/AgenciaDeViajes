@@ -14,12 +14,12 @@ public class GestorClientes {
 
 			switch (opcion_menu) {
 			case Menu.REGISTRAR_CLIENTES:
-				Clientes altaCliente = FormularioDeDatos.pedirDatosClientes(scan);
+				Cliente altaCliente = FormularioDeDatos.pedirDatosClientes(scan);
 				gestorbbdd.altaCliente(altaCliente);
 				Visor.mostrarMensajeCorrecto("Usuario Insertado correctamente");
 				break;
 			case Menu.DAR_BAJA:
-				Clientes bajaCliente = gestorbbdd.getCliente(FormularioDeDatos.pedirDniClientes(scan));
+				Cliente bajaCliente = gestorbbdd.getCliente(FormularioDeDatos.pedirDniClientes(scan));
 				if(bajaCliente.getDni() != "-1") {
 					gestorbbdd.bajaCliente(bajaCliente);
 					Visor.mostrarMensajeCorrecto("Cliente eliminado!");
@@ -27,9 +27,9 @@ public class GestorClientes {
 				
 				break;
 			case Menu.MODIFICAR_CLIENTE:
-				Clientes modificarCliente = gestorbbdd.getCliente(FormularioDeDatos.pedirDniClientes(scan));
+				Cliente modificarCliente = gestorbbdd.getCliente(FormularioDeDatos.pedirDniClientes(scan));
 				if(modificarCliente.getDni() != "-1") {
-					Clientes modificarNuevoCliente = FormularioDeDatos.datosModificarCliente(modificarCliente, scan);
+					Cliente modificarNuevoCliente = FormularioDeDatos.datosModificarCliente(modificarCliente, scan);
 					gestorbbdd.modificarCliente(modificarNuevoCliente);
 					Visor.mostrarMensajeCorrecto("Cliente actualizado!");
 				}

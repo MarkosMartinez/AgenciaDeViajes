@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class FormularioDeDatos {
 	
-	public static Clientes pedirDatosClientes(Scanner scan) {
-		Clientes cliente = new Clientes();
+	public static Cliente pedirDatosClientes(Scanner scan) {
+		Cliente cliente = new Cliente();
 		System.out.println("---INDICA TUS DATOS---");
 		System.out.println("Indica tu dni:");
 		String dniCliente=scan.nextLine();
@@ -35,8 +35,8 @@ public class FormularioDeDatos {
 	}
 	
 	
-	public static Clientes datosModificarCliente(Clientes modificarCliente, Scanner scan) {
-		Clientes cliente = new Clientes();
+	public static Cliente datosModificarCliente(Cliente modificarCliente, Scanner scan) {
+		Cliente cliente = new Cliente();
 		System.out.println("---MODIFICA TUS DATOS---");
 		System.out.println("Indica tu  nuevo nombre:");
 		String nombreCliente=scan.nextLine();
@@ -63,8 +63,8 @@ public class FormularioDeDatos {
 		return Integer.parseInt(scan.nextLine());
 	}
 
-	public static Hoteles pedirDatosHotel(Scanner scan) {
-		Hoteles nuevoHotel = new Hoteles();
+	public static Hotel pedirDatosHotel(Scanner scan) {
+		Hotel nuevoHotel = new Hotel();
 		System.out.println("Escribe el CIF del hotel: ");
 		nuevoHotel.setCif(scan.nextLine());
 		System.out.println("Escribe el Nombre del hotel: ");
@@ -84,8 +84,8 @@ public class FormularioDeDatos {
 	
 	
 	//------------------------------------------
-	public static Habitaciones pedirDatosHabitacion(Scanner scan, int id) {
-		Habitaciones habitacion= new Habitaciones();
+	public static Habitacion pedirDatosHabitacion(Scanner scan, int id) {
+		Habitacion habitacion= new Habitacion();
 		
 		System.out.println("---INSERTA DATOS DE LA HABITACION---");
 		System.out.println("Escribe el ID de la habitacion: ");

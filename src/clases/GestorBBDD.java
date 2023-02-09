@@ -3,12 +3,13 @@ package clases;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class GestorBBDD extends Conector{ //TODO Es extends?
 	Conector conector = new Conector();
 	
 	//Clientes ----------------------------------------------------
-	public void altaCliente(Clientes cliente) throws SQLException{
+	public void altaCliente(Cliente cliente) throws SQLException{
 		conector.conectar();
 		PreparedStatement alta = conector.getCon().prepareStatement("INSERT INTO clientes (dni, nombre, apellidos, direccion, localidad) VALUES (?,?,?,?,?);");
 		alta.setString(1, cliente.getDni());
@@ -20,8 +21,8 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		conector.cerrar();	
 	}
 	
-	public  Clientes getCliente(String dni) throws SQLException {
-		Clientes cliente = new Clientes();
+	public  Cliente getCliente(String dni) throws SQLException {
+		Cliente cliente = new Cliente();
 		conector.conectar();
 		PreparedStatement gettear =conector.getCon().prepareStatement("SELECT * FROM clientes WHERE dni =?");
 		gettear.setString(1, dni);
@@ -43,7 +44,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		
 	}
 	
-	public void bajaCliente(Clientes cliente) throws SQLException {
+	public void bajaCliente(Cliente cliente) throws SQLException {
 		conector.conectar();
 		PreparedStatement pstDelete = conector.getCon().prepareStatement("DELETE FROM clientes WHERE dni =?");
 		pstDelete.setString(1, cliente.getDni());
@@ -52,7 +53,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		
 	}
 	
-	public void modificarCliente(Clientes nuevosDatosCliente) throws SQLException {
+	public void modificarCliente(Cliente nuevosDatosCliente) throws SQLException {
 		conector.conectar();
 		PreparedStatement pstModificar = conector.getCon().prepareStatement("UPDATE clientes SET nombre= ?, apellidos= ?, direccion= ?, localidad=? WHERE dni = ?;");
 		pstModificar.setString(1, nuevosDatosCliente.getNombre());
@@ -66,7 +67,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 	}
 	
 /*---------------------A PARTIR DE AQUI ES PARA HOTELES */
-	public void registrarHotel(Hoteles hotel) throws SQLException{
+	public void registrarHotel(Hotel hotel) throws SQLException{
 		conector.conectar();
 		PreparedStatement registrarHotel = conector.getCon().prepareStatement("INSERT INTO hoteles (cif, nombre, gerente, estrellas, compania) VALUES (?,?,?,?,?);");
 		registrarHotel.setString(1,hotel.getCif());
@@ -81,8 +82,8 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 	
 	
 	
-	public  Hoteles getHoteles(int id) throws SQLException {
-		Hoteles hotel= new Hoteles();
+	public  Hotel getHoteles(int id) throws SQLException {
+		Hotel hotel= new Hotel();
 		conector.conectar();
 		PreparedStatement gettear = conector.getCon().prepareStatement("SELECT * FROM hoteles WHERE id = ?");
 		gettear.setInt(1, id);
@@ -103,8 +104,8 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		
 	}
 
-	//--------------------------------------------------------------------------
-	public void insertarHabitacion(Habitaciones datosHabitacion) throws SQLException {
+	//-------------------------HABITACIONES-------------------------------------------------
+	public void insertarHabitacion(Habitacion datosHabitacion) throws SQLException {
 		conector.conectar();
 		PreparedStatement registrarHabitacionl = conector.getCon().prepareStatement("INSERT INTO habitaciones (id, id_hotel, numero, descripcion, precio) VALUES (?,?,?,?,?);");
 		registrarHabitacionl.setInt(1,datosHabitacion.getId());
@@ -116,5 +117,24 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		conector.cerrar();
 	}
 	
+	public ArrayList<Habitacion> getHabitaciones() throws SQLException {
+		ArrayList<Habitacion> habitaciones = new ArrayList<>();
+		conector.conectar();
+		PreparedStatement gettearHabitacion = conector.getCon().prepareStatement("SELECT * FROM habitaciones");
+		ResultSet resultado = gettearHabitacion.executeQuery();
+		while(resultado.next()) {
+			Habitacion habitacion = new Habitacion();
+			habitacion.setId(resultado.getInt("id"));
+			habitacion.setId_hotel(resultado.getInt("id_hotel"));
+			habitacion.setNumero(resultado.getInt("numero"));
+			habitacion.setDescripcion(resultado.getString("descripcion"));
+			habitacion.setPrecio(resultado.getDouble("precio"));
+			habitaciones.add(habitacion);
+		}
+		conector.cerrar();
+		return habitaciones;
+	}
+
+	//-----------------------------------RESERVA-----------------------------------------
 	
 }

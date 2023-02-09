@@ -15,7 +15,7 @@ public class GestorHoteles {
 			
 			switch (opcion) {
 			case Menu.REGISTRAR_HOTEL:
-					Hoteles registrarHotel = FormularioDeDatos.pedirDatosHotel(scan);
+					Hotel registrarHotel = FormularioDeDatos.pedirDatosHotel(scan);
 					//TODO comprobar si el CIF ya existe para evitar duplicados.
 					gestorbbdd.registrarHotel(registrarHotel);
 					Visor.mostrarMensajeCorrecto("Hotel registado!");

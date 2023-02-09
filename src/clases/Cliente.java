@@ -1,6 +1,6 @@
 package clases;
 
-public class Clientes {
+public class Cliente {
 	
 	private String dni;
 	private String nombre;
@@ -44,7 +44,7 @@ public class Clientes {
 	
 	
 	//Constructores
-	public Clientes () {
+	public Cliente () {
 		
 	}
 	

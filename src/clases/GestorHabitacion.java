@@ -17,7 +17,7 @@ public class GestorHabitacion {
 			switch (opcion_menu) {
 			case Menu.CREAR_HABITACION:
 				//Pedir el CIF del hotel o el ID?
-				Hoteles hotel = gestorbbdd.getHoteles(FormularioDeDatos.pedirIdHotel(scan));
+				Hotel hotel = gestorbbdd.getHoteles(FormularioDeDatos.pedirIdHotel(scan));
 				if(hotel.getId() == -1) {
 					Visor.mostrarMensajeError("Ese hotel no existe en nuesta BD.");
 				}else {

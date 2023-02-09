@@ -1,6 +1,6 @@
 package clases;
 
-public class Hoteles {
+public class Hotel {
 
 	private int id;
 	private String cif;
@@ -51,7 +51,7 @@ public class Hoteles {
 	
 	
 	//Constructores
-		public Hoteles () {
+		public Hotel () {
 			
 		}
 	
