@@ -84,7 +84,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 	public  Hoteles getHoteles(int id) throws SQLException {
 		Hoteles hotel= new Hoteles();
 		conector.conectar();
-		PreparedStatement gettear =conector.getCon().prepareStatement("SELECT * FROM clientes WHERE id =?");
+		PreparedStatement gettear = conector.getCon().prepareStatement("SELECT * FROM hoteles WHERE id = ?");
 		gettear.setInt(1, id);
 		ResultSet resultado=gettear.executeQuery();
 		if(resultado.next()) {
@@ -101,6 +101,19 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		conector.cerrar();
 		return hotel;
 		
+	}
+
+	//--------------------------------------------------------------------------
+	public void insertarHabitacion(Habitaciones datosHabitacion) throws SQLException {
+		conector.conectar();
+		PreparedStatement registrarHabitacionl = conector.getCon().prepareStatement("INSERT INTO habitaciones (id, id_hotel, numero, descripcion, precio) VALUES (?,?,?,?,?);");
+		registrarHabitacionl.setInt(1,datosHabitacion.getId());
+		registrarHabitacionl.setInt(2,datosHabitacion.getId_hotel());
+		registrarHabitacionl.setInt(3,datosHabitacion.getNumero());
+		registrarHabitacionl.setString(4, datosHabitacion.getDescripcion());
+		registrarHabitacionl.setDouble(5, datosHabitacion.getPrecio());
+		registrarHabitacionl.execute();
+		conector.cerrar();
 	}
 	
 	

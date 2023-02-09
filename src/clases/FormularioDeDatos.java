@@ -77,4 +77,23 @@ public class FormularioDeDatos {
 		nuevoHotel.setCompania(scan.nextLine());
 		return nuevoHotel;
 	}
+	
+	
+	//------------------------------------------
+	public static Habitaciones pedirDatosHabitacion(Scanner scan, int id) {
+		Habitaciones habitacion= new Habitaciones();
+		
+		System.out.println("---INSERTA DATOS DE LA HABITACION---");
+		System.out.println("Escribe el ID de la habitacion: ");
+		habitacion.setId(Integer.parseInt(scan.nextLine()));
+		habitacion.setId_hotel(id);
+		System.out.println("Inserta el numero de la habitacion: ");
+		habitacion.setNumero(Integer.parseInt(scan.nextLine()));
+		System.out.println("Inserte la descripcion de la habitacion:");
+		habitacion.setDescripcion(scan.nextLine());
+		System.out.println("Inserte el precio del hotel:");
+		habitacion.setPrecio(Double.parseDouble(scan.nextLine()));
+		return habitacion;
+		
+	}
 }

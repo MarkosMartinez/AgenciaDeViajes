@@ -26,6 +26,7 @@ public class Menu {
 	
 	
 	public static void menuPrincipal() {
+		System.out.println("-----MENU PRINCIPAL----");
 		System.out.println(GESTIONAR_CLIENTES + ".- Gestionar Clientes" );
 		System.out.println(GESTIONAR_RESERVAS + ".- Gestionar Reservas" );
 		System.out.println(GESTIONAR_HOTELES + ".- Gestionar Hoteles" );

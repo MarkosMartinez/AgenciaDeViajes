@@ -1,6 +1,6 @@
 package clases;
 
-public class Habitacciones {
+public class Habitaciones {
 
 	private int id;
 	private int id_hotel;
@@ -44,7 +44,7 @@ public class Habitacciones {
 	
 	
 	//Constructores
-	public Habitacciones () {
+	public Habitaciones () {
 		
 	}
 	
