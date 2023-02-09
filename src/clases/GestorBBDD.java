@@ -117,10 +117,11 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		conector.cerrar();
 	}
 	
-	public ArrayList<Habitacion> getHabitaciones() throws SQLException {
+	public ArrayList<Habitacion> getHabitaciones(int id_hotel) throws SQLException {
 		ArrayList<Habitacion> habitaciones = new ArrayList<>();
 		conector.conectar();
-		PreparedStatement gettearHabitacion = conector.getCon().prepareStatement("SELECT * FROM habitaciones");
+		PreparedStatement gettearHabitacion = conector.getCon().prepareStatement("SELECT * FROM habitaciones WHERE id_hotel = ?");
+		gettearHabitacion.setInt(1, id_hotel);
 		ResultSet resultado = gettearHabitacion.executeQuery();
 		while(resultado.next()) {
 			Habitacion habitacion = new Habitacion();

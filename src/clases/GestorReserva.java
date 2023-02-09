@@ -19,14 +19,13 @@ public class GestorReserva {
 				
 				Cliente cliente = gestorbbdd.getCliente(FormularioDeDatos.pedirDniClientes(scan));
 				if (cliente.getDni() == "-1") {
-					Visor.mostrarMensajeError("El usuario no esta registrado.\nRegistre el usuario primero");
 					break;
 				}
 					Hotel hotel = gestorbbdd.getHoteles(FormularioDeDatos.pedirIdHotel(scan));
 					if(hotel.getId() == -1) {
 						Visor.mostrarMensajeError("El hotel no existe");
 				}else {
-					Visor.mostrarMensaje("El hotel tiene las siguiente habitaciones: ");
+					Visor.mostrarHabitaciones(gestorbbdd.getHabitaciones(hotel.getId()));
 					
 				}
 				
