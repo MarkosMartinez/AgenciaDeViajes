@@ -135,6 +135,30 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		conector.cerrar();
 		return habitaciones;
 	}
+	
+	public  Habitacion getHabitacion(int id, int id_hotel) throws SQLException {
+		Habitacion habitacion = new Habitacion();
+		conector.conectar();
+		PreparedStatement getHabitacion =conector.getCon().prepareStatement("SELECT * FROM clientes WHERE id =? AND id_hotel = ?");
+		getHabitacion.setInt(1, id);
+		getHabitacion.setInt(2, id_hotel);
+		ResultSet resultado=getHabitacion.executeQuery();
+		if(resultado.next()) {
+		habitacion.setId(resultado.getInt("id"));
+		habitacion.setId_hotel(resultado.getInt("id_hotal"));
+		habitacion.setNumero(resultado.getInt("numero"));
+		habitacion.setDescripcion(resultado.getString("descripcion"));
+		habitacion.setPrecio(resultado.getDouble("precio"));
+
+		}else {
+			Visor.mostrarMensajeError("Habitacion no encontrada!");
+			habitacion.setId(-1);
+		}
+		
+		conector.cerrar();
+		return habitacion;
+		
+	}
 
 	//-----------------------------------RESERVA-----------------------------------------
 	

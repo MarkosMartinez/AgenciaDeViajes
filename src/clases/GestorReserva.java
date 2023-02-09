@@ -26,7 +26,6 @@ public class GestorReserva {
 						Visor.mostrarMensajeError("El hotel no existe");
 				}else {
 					Visor.mostrarHabitaciones(gestorbbdd.getHabitaciones(hotel.getId()));
-					
 				}
 				
 				break;

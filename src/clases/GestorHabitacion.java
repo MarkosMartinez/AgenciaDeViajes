@@ -23,6 +23,8 @@ public class GestorHabitacion {
 				}else {
 					gestorbbdd.insertarHabitacion(FormularioDeDatos.pedirDatosHabitacion(scan, hotel.getId()));
 					Visor.mostrarMensajeCorrecto("Habitacion creada!");
+					/*Habitacion habitacion = FormularioDeDatos.pedirDatosHabitacion(scan, opcion_menu);
+					gestorbbdd.getHabitacion(opcion_menu, opcion_menu);*/
 				}
 
 				break;

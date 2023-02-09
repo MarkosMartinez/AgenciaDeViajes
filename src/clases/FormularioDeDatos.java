@@ -100,4 +100,8 @@ public class FormularioDeDatos {
 		return habitacion;
 		
 	}
+	
+//Pedir Id habitacion
+	
+	
 }
