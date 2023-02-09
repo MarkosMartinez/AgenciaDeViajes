@@ -19,7 +19,7 @@ public class GestorReserva {
 			case Menu.ANULAR_RESERVA:
 				
 				
-			
+				break;
 			case Menu.SALIR:
 				System.out.println("\nAgur!");
 				break;

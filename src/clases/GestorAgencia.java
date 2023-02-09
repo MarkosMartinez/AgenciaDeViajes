@@ -26,6 +26,10 @@ public class GestorAgencia {
 				GestorHoteles.run(scan);
 				
 				break;
+			case Menu.GESTIONAR_HABITACION:
+				GestorHabitacion.run(scan);
+				
+				break;
 			case Menu.SALIR:
 				System.out.println("\nAgur!");
 				break;
