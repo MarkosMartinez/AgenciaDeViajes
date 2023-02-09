@@ -17,12 +17,11 @@ public class GestorHoteles {
 			case Menu.REGISTRAR_HOTEL:
 					Hoteles registrarHotel = FormularioDeDatos.pedirDatosHotel(scan);
 					gestorbbdd.registrarHotel(registrarHotel);
-					Visor.mostrarMensajeCorrecto("Hotel registado!");
+					Visor.mostrarMensajeCorrecto("Hotel registado con el ID: " + registrarHotel.getId());
+					Menu.menuHabitaciones();
 				
 				break;
-			case Menu.CREAR_HABITACION:
 				
-				break;
 			case Menu.SALIR:
 				break;
 			default:
