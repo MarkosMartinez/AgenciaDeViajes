@@ -42,11 +42,15 @@ public class GestorReserva {
 				
 				break;
 			case Menu.ANULAR_RESERVA:
-				
+			int idEliminar = FormularioDeDatos.pedirIdReserva(scan);
+			Reserva reserva = gestorbbdd.getReserva(idEliminar);
+			if (reserva.getId()!=-1) {
+				gestorbbdd.anularReserva(idEliminar);
+				Visor.mostrarMensajeCorrecto("Reserva Eliminada!");
+			}
 				
 				break;
 			case Menu.SALIR:
-				System.out.println("\nAgur!");
 				break;
 			default:
 				Visor.mostrarMensajeError("Opcion no valida!\nIntentalo de nuevo.");

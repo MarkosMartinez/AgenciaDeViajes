@@ -132,4 +132,10 @@ public class FormularioDeDatos {
 	}
 	
 	
+	public static int pedirIdReserva(Scanner scan) {
+		
+		System.out.println("Escribe el ID de la reserva que quieres eliminar: ");
+		return Integer.parseInt(scan.nextLine());
+	}
+	
 }

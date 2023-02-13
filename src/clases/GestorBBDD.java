@@ -165,6 +165,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 	public void realizarReserva(Reserva reserva) throws SQLException {
 		conector.conectar();
 		PreparedStatement registrarReserva = conector.getCon().prepareStatement("INSERT INTO reservas ( id_habitacion,dni,desde,hasta) VALUES (?,?,?,?);");
+		//TODO verificar la el desde, hasta tenga sentido.
 		registrarReserva.setInt(1,reserva.getId_habitacion());
 		registrarReserva.setString(2,reserva.getDni());
 		registrarReserva.setDate(3,new Date(reserva.getDesde().getTime()));
@@ -173,6 +174,38 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 		conector.cerrar();
 	}
 	
+	
+	public void anularReserva(int idReserva) throws SQLException {
+			conector.conectar();
+			PreparedStatement pstDelete = conector.getCon().prepareStatement("DELETE FROM reservas WHERE id =?");
+			pstDelete.setInt(1, idReserva);
+			pstDelete.execute();
+			conector.cerrar();
+		
+	}
+
+	public Reserva getReserva(int idEliminar) throws SQLException {
+		Reserva reserva = new Reserva();
+		conector.conectar();
+		PreparedStatement getReserva =  conector.getCon().prepareStatement("SELECT * FROM reservas WHERE id =?");
+		getReserva.setInt(1, idEliminar);
+		ResultSet resultado = getReserva.executeQuery();
+		if(resultado.next()) {
+		reserva.setId(resultado.getInt("id"));
+		reserva.setId_habitacion(resultado.getInt("id_habitacion"));
+		reserva.setDni(resultado.getString("dni"));
+		reserva.setDesde(resultado.getDate("desde"));
+		reserva.setHasta(resultado.getDate("hasta"));
+
+		}else {
+			Visor.mostrarMensajeError("Reserva no encontrada!");
+			reserva.setId(-1);
+		}
+		
+		conector.cerrar();
+		return reserva;
+		
+	}
 	
 	
 }
