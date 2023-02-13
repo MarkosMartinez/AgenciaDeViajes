@@ -28,7 +28,7 @@ public class GestorReserva {
 				}else {
 					Visor.mostrarHabitaciones(gestorbbdd.getHabitaciones(hotel.getId()));
 					int idHabitacion = FormularioDeDatos.pedirIdHabitacion(scan);
-					Habitacion habitacion = gestorbbdd.getHabitacion(hotel.getId(), idHabitacion);
+					Habitacion habitacion = gestorbbdd.getHabitacion(idHabitacion, hotel.getId());
 					if(habitacion.getId()== -1) {
 						Visor.mostrarMensajeError("La habitacion no ha sido encontrada");
 					}else {

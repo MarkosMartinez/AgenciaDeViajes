@@ -140,13 +140,13 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 	public  Habitacion getHabitacion(int id, int id_hotel) throws SQLException {
 		Habitacion habitacion = new Habitacion();
 		conector.conectar();
-		PreparedStatement getHabitacion =  conector.getCon().prepareStatement("SELECT * FROM clientes WHERE id =? AND id_hotel = ?");
+		PreparedStatement getHabitacion =  conector.getCon().prepareStatement("SELECT * FROM habitaciones WHERE id =? AND id_hotel = ?");
 		getHabitacion.setInt(1, id);
 		getHabitacion.setInt(2, id_hotel);
-		ResultSet resultado=getHabitacion.executeQuery();
+		ResultSet resultado = getHabitacion.executeQuery();
 		if(resultado.next()) {
 		habitacion.setId(resultado.getInt("id"));
-		habitacion.setId_hotel(resultado.getInt("id_hotal"));
+		habitacion.setId_hotel(resultado.getInt("id_hotel"));
 		habitacion.setNumero(resultado.getInt("numero"));
 		habitacion.setDescripcion(resultado.getString("descripcion"));
 		habitacion.setPrecio(resultado.getDouble("precio"));
@@ -164,7 +164,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 	//-----------------------------------RESERVA-----------------------------------------
 	public void realizarReserva(Reserva reserva) throws SQLException {
 		conector.conectar();
-		PreparedStatement registrarReserva = conector.getCon().prepareStatement("INSERT INTO habitaciones ( id_habitacion,dni,desde,hasta) VALUES (?,?,?,?);");
+		PreparedStatement registrarReserva = conector.getCon().prepareStatement("INSERT INTO reservas ( id_habitacion,dni,desde,hasta) VALUES (?,?,?,?);");
 		registrarReserva.setInt(1,reserva.getId_habitacion());
 		registrarReserva.setString(2,reserva.getDni());
 		registrarReserva.setDate(3,new Date(reserva.getDesde().getTime()));
