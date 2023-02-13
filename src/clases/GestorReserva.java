@@ -34,9 +34,6 @@ public class GestorReserva {
 					}else {
 						Reserva reserva = FormularioDeDatos.pedirDatosReserva(scan, cliente.getDni(), hotel.getId(), habitacion.getId());
 						gestorbbdd.realizarReserva(reserva);
-						
-						Visor.mostrarMensajeCorrecto("Reserva realizada con exito!");
-					
 					}
 				}
 				

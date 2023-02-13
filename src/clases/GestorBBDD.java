@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class GestorBBDD extends Conector{ //TODO Es extends?
+public class GestorBBDD extends Conector{
 	Conector conector = new Conector();
 	
 	//Clientes ----------------------------------------------------
@@ -165,12 +165,20 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 	public void realizarReserva(Reserva reserva) throws SQLException {
 		conector.conectar();
 		PreparedStatement registrarReserva = conector.getCon().prepareStatement("INSERT INTO reservas ( id_habitacion,dni,desde,hasta) VALUES (?,?,?,?);");
-		//TODO verificar la el desde, hasta tenga sentido.
-		registrarReserva.setInt(1,reserva.getId_habitacion());
-		registrarReserva.setString(2,reserva.getDni());
-		registrarReserva.setDate(3,new Date(reserva.getDesde().getTime()));
-		registrarReserva.setDate(4,new Date(reserva.getHasta().getTime()));
-		registrarReserva.execute();
+		Date desde = new Date(reserva.getDesde().getTime());
+		Date hasta = new Date(reserva.getHasta().getTime());
+		
+		int compararFecha=desde.compareTo(hasta);
+		if (compararFecha<0) {
+			registrarReserva.setInt(1,reserva.getId_habitacion());
+			registrarReserva.setString(2,reserva.getDni());
+			registrarReserva.setDate(3,desde);
+			registrarReserva.setDate(4,hasta);
+			registrarReserva.execute();
+			Visor.mostrarMensajeCorrecto("Reserva realizada con exito!");
+		}else {
+			Visor.mostrarMensajeError("Las fechas de reserva no tienen sentido");
+		}
 		conector.cerrar();
 	}
 	
