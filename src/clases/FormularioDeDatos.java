@@ -111,6 +111,7 @@ public class FormularioDeDatos {
 		return Integer.parseInt(scan.nextLine());
 	}
 	
+
 /*reserva------------------------------------------------------------*/
 	
 	
