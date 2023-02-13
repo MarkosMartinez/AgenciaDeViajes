@@ -1,5 +1,6 @@
 package clases;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -139,7 +140,7 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 	public  Habitacion getHabitacion(int id, int id_hotel) throws SQLException {
 		Habitacion habitacion = new Habitacion();
 		conector.conectar();
-		PreparedStatement getHabitacion =conector.getCon().prepareStatement("SELECT * FROM clientes WHERE id =? AND id_hotel = ?");
+		PreparedStatement getHabitacion =  conector.getCon().prepareStatement("SELECT * FROM clientes WHERE id =? AND id_hotel = ?");
 		getHabitacion.setInt(1, id);
 		getHabitacion.setInt(2, id_hotel);
 		ResultSet resultado=getHabitacion.executeQuery();
@@ -161,5 +162,17 @@ public class GestorBBDD extends Conector{ //TODO Es extends?
 	}
 
 	//-----------------------------------RESERVA-----------------------------------------
+	public void realizarReserva(Reserva reserva) throws SQLException {
+		conector.conectar();
+		PreparedStatement registrarReserva = conector.getCon().prepareStatement("INSERT INTO habitaciones ( id_habitacion,dni,desde,hasta) VALUES (?,?,?,?);");
+		registrarReserva.setInt(1,reserva.getId_habitacion());
+		registrarReserva.setString(2,reserva.getDni());
+		registrarReserva.setDate(3,new Date(reserva.getDesde().getTime()));
+		registrarReserva.setDate(4,new Date(reserva.getHasta().getTime()));
+		registrarReserva.execute();
+		conector.cerrar();
+	}
+	
+	
 	
 }

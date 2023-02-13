@@ -1,11 +1,12 @@
 package clases;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class GestorReserva {
 	Scanner scan = new Scanner(System.in);
-	public static void run(Scanner scan) throws SQLException {		
+	public static void run(Scanner scan) throws SQLException, ParseException {		
 		
 		int opcion_menu;
 		GestorBBDD gestorbbdd = new GestorBBDD();
@@ -26,6 +27,17 @@ public class GestorReserva {
 						Visor.mostrarMensajeError("El hotel no existe");
 				}else {
 					Visor.mostrarHabitaciones(gestorbbdd.getHabitaciones(hotel.getId()));
+					int idHabitacion = FormularioDeDatos.pedirIdHabitacion(scan);
+					Habitacion habitacion = gestorbbdd.getHabitacion(hotel.getId(), idHabitacion);
+					if(habitacion.getId()== -1) {
+						Visor.mostrarMensajeError("La habitacion no ha sido encontrada");
+					}else {
+						Reserva reserva = FormularioDeDatos.pedirDatosReserva(scan, cliente.getDni(), hotel.getId(), habitacion.getId());
+						gestorbbdd.realizarReserva(reserva);
+						
+						Visor.mostrarMensajeCorrecto("Reserva realizada con exito!");
+					
+					}
 				}
 				
 				break;
