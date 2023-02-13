@@ -19,7 +19,7 @@ public class Visor {
 	public static void mostrarHabitaciones(ArrayList<Habitacion> habitaciones) {
 		System.out.println("Estos son todas las habitaciones del hotel: ");
 		for (Habitacion habitacion : habitaciones) {
-			System.out.println("ID: " + habitacion.getId() + "\nID del hotel: " + habitacion.getId_hotel() + "\nNumero de la habitacion: " + habitacion.getNumero() + "\nDescipcion de la habitacion: " + habitacion.getDescripcion() + "\nPrecio de la habitacion"+habitacion.getPrecio() + "\n");
+			System.out.println("ID de la habitacion: " + habitacion.getId() + "\nID del hotel: " + habitacion.getId_hotel() + "\nNumero de la habitacion: " + habitacion.getNumero() + "\nDescipcion de la habitacion: " + habitacion.getDescripcion() + "\nPrecio de la habitacion: "+habitacion.getPrecio() + "\n");
 		}
 	}
 

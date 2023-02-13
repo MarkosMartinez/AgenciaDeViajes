@@ -124,7 +124,7 @@ public class FormularioDeDatos {
 		System.out.println("Desde cuando quieres realizar la reserva (dd/MM/yyyy): ");
 		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
 		reserva.setDesde(formatoFecha.parse(scan.nextLine()));
-		System.out.println("Hasta cuando quieres realizar la reserva)");
+		System.out.println("Hasta cuando quieres realizar la reserva (dd/MM/yyyy): ");
 		reserva.setHasta(formatoFecha.parse(scan.nextLine()));
 		
 		return reserva;
