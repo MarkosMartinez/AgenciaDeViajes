@@ -12,6 +12,7 @@ public class GestorConsultasClientes {
 
 			switch (opcion_menu) {
 			case Menu.ORDENAR_APELLIDO:
+				
 
 				break;
 			case Menu.ORDENAR_NOMBRE:

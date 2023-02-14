@@ -23,22 +23,21 @@ public class Menu {
 	public static final int MODIFICAR_CLIENTE = 3;
 	
 	//FASE DOS CONSULTAS CLIENTES
-	public static final int ORDENAR_APELLIDO = 1;
-	public static final int ORDENAR_NOMBRE = 2;
-	public static final int MOSTRAR_CADENA = 3;
-	
-	//FASE DOS CONSULTAS RESERVAS
-	
-	public static final int CONSULTAR_FECHA =1 ;
-	public static final int CONSULTAR_RESERVAS_CLIENTE =2 ;
-
-
+	public static final int ORDENAR_APELLIDO = 4;
+	public static final int ORDENAR_NOMBRE = 5;
+	public static final int MOSTRAR_CADENA = 6;
 	
 	
 	
 	// MENU RESERVA
 	public static final int REALIZAR_RESERVA = 1;
 	public static final int ANULAR_RESERVA = 2;
+	
+	//FASE DOS CONSULTAS RESERVAS
+	public static final int CONSULTAR_FECHA =1 ;
+	public static final int CONSULTAR_RESERVAS_CLIENTE =2 ;
+	
+	
 	
 	//MENU HOTELES
 	public static final int REGISTRAR_HOTEL = 1;
@@ -52,9 +51,6 @@ public class Menu {
 		System.out.println(GESTIONAR_RESERVAS + ".- Gestionar Reservas" );
 		System.out.println(GESTIONAR_HOTELES + ".- Gestionar Hoteles" );
 		System.out.println(GESTIONAR_HABITACION + ".- Gestionar Habitaciones" );
-		System.out.println(CONSULTAR_CLIENTES + ".- Gestionar Habitaciones" );
-		System.out.println(GESTIONAR_HABITACION + ".- Gestionar Habitaciones" );
-		System.out.println(CONSULTAR_RESERVAS + ".- Gestionar Habitaciones" );
 		System.out.println(SALIR + ".- Salir" );
 	}
 	
@@ -62,6 +58,9 @@ public class Menu {
 		System.out.println(REGISTRAR_CLIENTES + ".- Registrar Clientes" );
 		System.out.println(DAR_BAJA + ".- Dar de baja al Cliente" );
 		System.out.println(MODIFICAR_CLIENTE + ".- Modificar Clientes" );
+		System.out.println(ORDENAR_APELLIDO + ".- Mostrar clientes ordenados por apellidos" );
+		System.out.println(ORDENAR_NOMBRE + ".- Mostrar clientes ordenados por el nombres" );
+		System.out.println(MOSTRAR_CADENA + ".- Mostrar clientes con una cadena especifica" );
 		System.out.println(SALIR + ".- Salir" );
 
 	}
@@ -69,6 +68,8 @@ public class Menu {
 	public static void menuReserva() {
 		System.out.println(REALIZAR_RESERVA + ".- Realizar Reserva" );
 		System.out.println(ANULAR_RESERVA + ".- Anular Reserva" );
+		System.out.println(CONSULTAR_FECHA + ".- Consultar reservas entre dos fechas" );
+		System.out.println(CONSULTAR_RESERVAS_CLIENTE + ".- Consular reservas de un cliente" );
 		System.out.println(SALIR + ".- Salir" );
 		
 	}
@@ -93,12 +94,6 @@ public class Menu {
 
 	}
 	
-	public static void consultaReservas() {
-		
-		System.out.println(CONSULTAR_FECHA + ".- Consultar reservas entre fechas" );
-		System.out.println(CONSULTAR_RESERVAS_CLIENTE + ".- Consultar reservas de cliente" );
-
-		
-	}
-
+	
+	
 }

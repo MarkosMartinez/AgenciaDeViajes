@@ -35,6 +35,16 @@ public class GestorClientes {
 				}
 				
 				break;
+			case Menu.ORDENAR_APELLIDO:
+				
+
+				break;
+			case Menu.ORDENAR_NOMBRE:
+
+				break;
+			case Menu.MOSTRAR_CADENA:
+
+				break;
 			case Menu.SALIR:
 				break;
 			default:
