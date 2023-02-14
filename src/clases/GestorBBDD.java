@@ -45,6 +45,26 @@ public class GestorBBDD extends Conector{
 		
 	}
 	
+	public ArrayList<Cliente> getClientes(String dni) throws SQLException {
+		ArrayList<Cliente> clientes = new ArrayList<>();
+		conector.conectar();
+		PreparedStatement gettearClientes = conector.getCon().prepareStatement("SELECT * FROM clientes WHERE dni = ?");
+		gettearClientes.setString(1, dni);
+		ResultSet resultado = gettearClientes.executeQuery();
+		while(resultado.next()) {
+			Cliente cliente = new Cliente();
+			cliente.setDni(resultado.getString("dni"));
+			cliente.setNombre(resultado.getString("nombre"));
+			cliente.setApellidos(resultado.getString("apellidos"));
+			cliente.setDireccion(resultado.getString("direccion"));
+			cliente.setLocalidad(resultado.getString("direccion"));
+
+			clientes.add(cliente);
+		}
+		conector.cerrar();
+		return clientes;
+	}
+	
 	public void bajaCliente(Cliente cliente) throws SQLException {
 		conector.conectar();
 		PreparedStatement pstDelete = conector.getCon().prepareStatement("DELETE FROM clientes WHERE dni =?");
@@ -214,6 +234,26 @@ public class GestorBBDD extends Conector{
 		return reserva;
 		
 	}
+	
+	public ArrayList<Reserva> getReservas(int id) throws SQLException {
+		ArrayList<Reserva> reservas = new ArrayList<>();
+		conector.conectar();
+		PreparedStatement gettearReservas = conector.getCon().prepareStatement("SELECT * FROM reservas WHERE id = ?");
+		gettearReservas.setInt(1, id);
+		ResultSet resultado = gettearReservas.executeQuery();
+		while(resultado.next()) {
+			Reserva reserva = new Reserva();
+			reserva.setId(resultado.getInt("id"));
+			reserva.setId_habitacion(resultado.getInt("id_habitacion"));
+			reserva.setDni(resultado.getString("dni"));
+			reserva.setDesde(resultado.getDate("desde"));
+			reserva.setHasta(resultado.getDate("hasta"));
+			reservas.add(reserva);
+		}
+		conector.cerrar();
+		return reservas;
+	}
+	
 	
 	
 }
