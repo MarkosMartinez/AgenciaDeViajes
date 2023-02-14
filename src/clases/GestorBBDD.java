@@ -45,11 +45,10 @@ public class GestorBBDD extends Conector{
 		
 	}
 	
-	public ArrayList<Cliente> getClientes(String dni) throws SQLException {
+	public ArrayList<Cliente> getClientes() throws SQLException {
 		ArrayList<Cliente> clientes = new ArrayList<>();
 		conector.conectar();
-		PreparedStatement gettearClientes = conector.getCon().prepareStatement("SELECT * FROM clientes WHERE dni = ?");
-		gettearClientes.setString(1, dni);
+		PreparedStatement gettearClientes = conector.getCon().prepareStatement("SELECT * FROM clientes");
 		ResultSet resultado = gettearClientes.executeQuery();
 		while(resultado.next()) {
 			Cliente cliente = new Cliente();
@@ -235,11 +234,10 @@ public class GestorBBDD extends Conector{
 		
 	}
 	
-	public ArrayList<Reserva> getReservas(int id) throws SQLException {
+	public ArrayList<Reserva> getReservas() throws SQLException {
 		ArrayList<Reserva> reservas = new ArrayList<>();
 		conector.conectar();
-		PreparedStatement gettearReservas = conector.getCon().prepareStatement("SELECT * FROM reservas WHERE id = ?");
-		gettearReservas.setInt(1, id);
+		PreparedStatement gettearReservas = conector.getCon().prepareStatement("SELECT * FROM reservas");
 		ResultSet resultado = gettearReservas.executeQuery();
 		while(resultado.next()) {
 			Reserva reserva = new Reserva();

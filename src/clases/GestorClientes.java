@@ -1,12 +1,14 @@
 package clases;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GestorClientes {
 	public static void run(Scanner scan) throws SQLException {
 		int opcion_menu;
 		GestorBBDD gestorbbdd = new GestorBBDD();
+		GestorDatos gestordatos = new GestorDatos();
 
 		do {
 			Menu.menuClientes();
@@ -36,10 +38,17 @@ public class GestorClientes {
 				
 				break;
 			case Menu.ORDENAR_APELLIDO:
+				ArrayList<Cliente> clientesSinOrdenar =  gestorbbdd.getClientes();
+				ArrayList<Cliente> clientesOrdApellidos =  gestordatos.ordenarApellido(clientesSinOrdenar);
+				Visor.mostrarClientes(clientesOrdApellidos);
 				
 
 				break;
 			case Menu.ORDENAR_NOMBRE:
+				ArrayList<Cliente> clientesSinOrdenarNombre =  gestorbbdd.getClientes();
+				ArrayList<Cliente> clientesOrdNombre =  gestordatos.ordenarNombre(clientesSinOrdenarNombre);
+				Visor.mostrarClientes(clientesOrdNombre);
+				
 
 				break;
 			case Menu.MOSTRAR_CADENA:

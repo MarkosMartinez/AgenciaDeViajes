@@ -10,12 +10,8 @@ public class Menu {
 	public static final int GESTIONAR_RESERVAS = 2;
 	public static final int GESTIONAR_HOTELES = 3;
 	public static final int GESTIONAR_HABITACION =4 ;
-	//FASE 2
-	public static final int CONSULTAR_CLIENTES =5 ;
-	public static final int CONSULTAR_RESERVAS =6 ;
 
-
-
+	
 	
 	//MENU CLIENTES		
 	public static final int REGISTRAR_CLIENTES = 1;
@@ -34,8 +30,8 @@ public class Menu {
 	public static final int ANULAR_RESERVA = 2;
 	
 	//FASE DOS CONSULTAS RESERVAS
-	public static final int CONSULTAR_FECHA =1 ;
-	public static final int CONSULTAR_RESERVAS_CLIENTE =2 ;
+	public static final int CONSULTAR_FECHA = 3 ;
+	public static final int CONSULTAR_RESERVAS_CLIENTE = 4;
 	
 	
 	
@@ -53,6 +49,7 @@ public class Menu {
 		System.out.println(GESTIONAR_HABITACION + ".- Gestionar Habitaciones" );
 		System.out.println(SALIR + ".- Salir" );
 	}
+	
 	
 	public static void menuClientes() {
 		System.out.println(REGISTRAR_CLIENTES + ".- Registrar Clientes" );

@@ -47,6 +47,12 @@ public class GestorReserva {
 			}
 				
 				break;
+			case Menu.CONSULTAR_RESERVAS_CLIENTE:
+
+				break;
+			case Menu.CONSULTAR_FECHA:
+
+				break;
 			case Menu.SALIR:
 				break;
 			default:
