@@ -55,7 +55,11 @@ public class GestorClientes {
 				String cadenaABuscar = FormularioDeDatos.pedirCadena(scan);
 				ArrayList<Cliente> clientesABuscar =  gestorbbdd.getClientes();
 				ArrayList<Cliente> clientesEncontrados = gestordatos.buscarCaracter(cadenaABuscar, clientesABuscar);
+				if(clientesEncontrados.size() == 0) {
+				Visor.mostrarMensajeError("No hemos encontrado a nadie con esa cadena de caracteres");	
+				}else {
 				Visor.mostrarClientes(clientesEncontrados);
+				}
 				
 				break;
 			case Menu.SALIR:
