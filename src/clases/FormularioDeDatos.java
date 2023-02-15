@@ -1,6 +1,5 @@
 package clases;
 
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
@@ -10,8 +9,19 @@ public class FormularioDeDatos {
 	public static Cliente pedirDatosClientes(Scanner scan) {
 		Cliente cliente = new Cliente();
 		System.out.println("---INDICA TUS DATOS---");
-		System.out.println("Indica tu dni:");
-		String dniCliente=scan.nextLine();
+		boolean correcto = false;
+		String dniCliente = "-1";
+		do {
+			System.out.println("Indica tu dni:");
+			String dniTemporal = scan.nextLine();
+		if(dniTemporal.length() > 9 || dniTemporal.length() < 1) {
+			Visor.mostrarMensajeError("El formato del DNI no es correcto\n¡Vuelva a intentarlo! ");
+		}else {
+			dniCliente=dniTemporal;
+			correcto = true;
+		}
+		}while(!correcto);
+		
 		System.out.println("Indica tu nombre:");
 		String nombreCliente=scan.nextLine();
 		System.out.println("Indica tu apellido:");

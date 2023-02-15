@@ -29,7 +29,11 @@ public class GestorReserva {
 					if(hotel.getId() == -1) {
 						Visor.mostrarMensajeError("El hotel no existe");
 				}else {
-					Visor.mostrarHabitaciones(gestorbbdd.getHabitaciones(hotel.getId()));
+					ArrayList<Habitacion> habitacionesDelHotel = gestorbbdd.getHabitaciones(hotel.getId());
+					if(habitacionesDelHotel.size() == 0) {
+						Visor.mostrarMensajeError("En este hotel no hay habitaciones disponibles");
+					}else {
+					Visor.mostrarHabitaciones(habitacionesDelHotel);
 					int idHabitacion = FormularioDeDatos.pedirIdHabitacion(scan);
 					Habitacion habitacion = gestorbbdd.getHabitacion(idHabitacion, hotel.getId());
 					if(habitacion.getId()== -1) {
@@ -37,6 +41,7 @@ public class GestorReserva {
 					}else {
 						Reserva reserva = FormularioDeDatos.pedirDatosReserva(scan, cliente.getDni(), hotel.getId(), habitacion.getId());
 						gestorbbdd.realizarReserva(reserva);
+					}
 					}
 				}
 				
