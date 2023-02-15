@@ -1,7 +1,9 @@
 package clases;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GestorReserva {
@@ -10,6 +12,7 @@ public class GestorReserva {
 		
 		int opcion_menu;
 		GestorBBDD gestorbbdd = new GestorBBDD();
+		GestorDatos gestordatos = new GestorDatos();
 
 		do {
 			Menu.menuReserva();
@@ -48,10 +51,19 @@ public class GestorReserva {
 				
 				break;
 			case Menu.CONSULTAR_RESERVAS_CLIENTE:
-
+				
 				break;
 			case Menu.CONSULTAR_FECHA:
-
+				java.util.Date fecha1 = FormularioDeDatos.consultarFecha(scan);
+				java.util.Date fecha2 = FormularioDeDatos.consultarFecha2(scan);
+				ArrayList<Reserva> reservasABuscar =  gestorbbdd.getReservas();
+				ArrayList<Reserva> reservasEncontradas = gestordatos.getReservasPorFecha(fecha1, fecha2, reservasABuscar);
+				if(reservasEncontradas.size() == 0) {
+					Visor.mostrarMensajeError("No hemos encontrado ninguna reserva entre esas fechas!");
+				}else {
+				Visor.mostrarReservas(reservasEncontradas);
+				}
+				
 				break;
 			case Menu.SALIR:
 				break;

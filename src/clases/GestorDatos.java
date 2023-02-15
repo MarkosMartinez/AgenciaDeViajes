@@ -1,6 +1,7 @@
 package clases;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class GestorDatos {
 
@@ -31,6 +32,18 @@ public class GestorDatos {
 		}
 		
 		return clientesEncontrados;
+	}
+
+	public ArrayList<Reserva> getReservasPorFecha(Date fecha1, Date fecha2, ArrayList<Reserva> reservasABuscar) {
+		ArrayList<Reserva> ReservasEncontradas = new ArrayList<Reserva>();
+		for (Reserva reserva : reservasABuscar) {
+			if((reserva.getDesde().getTime() >= fecha1.getTime()) && (reserva.getHasta().getTime() <= fecha2.getTime())) {
+				ReservasEncontradas.add(reserva);
+			}
+		}
+		
+		
+		return ReservasEncontradas;
 	}
 	
 	

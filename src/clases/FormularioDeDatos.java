@@ -1,5 +1,6 @@
 package clases;
 
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
@@ -143,5 +144,23 @@ public class FormularioDeDatos {
 		System.out.println("Indica la cadena que desea buscar: ");
 		return scan.nextLine();
 	}
+
+	public static java.util.Date consultarFecha(Scanner scan) throws ParseException {
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+		System.out.println("Indica la fecha desde cuando quieras realizar la busqueda de reservas (dd/MM/yyyy):");
+		java.util.Date fecha = formatoFecha.parse(scan.nextLine());
+		return  fecha;
+	}
+
+	
+	public static java.util.Date  consultarFecha2(Scanner scan) throws ParseException{
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+
+		System.out.println("Indica la fecha hasta cuando quieras realizar la busqueda de reservas (dd/MM/yyyy):");
+		java.util.Date fecha2 = formatoFecha.parse(scan.nextLine());
+
+		return fecha2;
+	}
+	
 	
 }
