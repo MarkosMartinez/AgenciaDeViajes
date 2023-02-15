@@ -52,7 +52,11 @@ public class GestorClientes {
 
 				break;
 			case Menu.MOSTRAR_CADENA:
-
+				String cadenaABuscar = FormularioDeDatos.pedirCadena(scan);
+				ArrayList<Cliente> clientesABuscar =  gestorbbdd.getClientes();
+				ArrayList<Cliente> clientesEncontrados = gestordatos.buscarCaracter(cadenaABuscar, clientesABuscar);
+				Visor.mostrarClientes(clientesEncontrados);
+				
 				break;
 			case Menu.SALIR:
 				break;

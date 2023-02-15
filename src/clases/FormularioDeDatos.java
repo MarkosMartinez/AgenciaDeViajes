@@ -138,5 +138,10 @@ public class FormularioDeDatos {
 		System.out.println("Escribe el ID de la reserva que quieres eliminar: ");
 		return Integer.parseInt(scan.nextLine());
 	}
+
+	public static String pedirCadena(Scanner scan) {
+		System.out.println("Indica la cadena que desea buscar: ");
+		return scan.nextLine();
+	}
 	
 }

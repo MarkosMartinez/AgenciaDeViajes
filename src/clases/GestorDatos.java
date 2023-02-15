@@ -21,6 +21,17 @@ public class GestorDatos {
 			}
 			return clientesOrdenado;
 	    }
+
+	public ArrayList<Cliente> buscarCaracter(String cadenaABuscar, ArrayList<Cliente> clientesABuscar) {
+		ArrayList<Cliente> clientesEncontrados = new ArrayList<Cliente>();
+		for (Cliente cliente : clientesABuscar) {
+			if(cliente.getNombre().contains(cadenaABuscar) || cliente.getApellidos().contains(cadenaABuscar)) {
+				clientesEncontrados.add(cliente);
+			}
+		}
+		
+		return clientesEncontrados;
+	}
 	
 	
 }
