@@ -51,6 +51,16 @@ public class GestorReserva {
 				
 				break;
 			case Menu.CONSULTAR_RESERVAS_CLIENTE:
+				String dni = FormularioDeDatos.pedirDniClientes(scan);
+				ArrayList<Reserva> reservas = gestorbbdd.getReservas();
+				ArrayList<Reserva> reservaBuscarCliente = gestordatos.buscarReservasClientes(reservas, dni);
+				
+				if(reservaBuscarCliente.size()==0) {
+					Visor.mostrarMensajeError("Ninguna reserva encontrada! ");
+				}else {
+					Visor.mostrarReservas(reservaBuscarCliente);
+				}
+	
 				
 				break;
 			case Menu.CONSULTAR_FECHA:

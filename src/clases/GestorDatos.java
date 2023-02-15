@@ -45,6 +45,20 @@ public class GestorDatos {
 		
 		return ReservasEncontradas;
 	}
+
+	public ArrayList<Reserva> buscarReservasClientes(ArrayList<Reserva> reservas, String dni) {
+		ArrayList<Reserva> reservasEncontradasClientes = new ArrayList<Reserva>();
+		
+		for (Reserva reserva : reservas) {
+			if(reserva.getDni().equals(dni)) {
+				reservasEncontradasClientes.add(reserva);
+			}
+		}
+		
+		
+		
+		return reservasEncontradasClientes;
+	}
 	
 	
 }
