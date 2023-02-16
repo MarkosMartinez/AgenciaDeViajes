@@ -18,7 +18,6 @@ public class GestorHoteles {
 					Hotel registrarHotel = FormularioDeDatos.pedirDatosHotel(scan);
 					gestorbbdd.registrarHotel(registrarHotel);
 					Visor.mostrarMensajeCorrecto("Hotel registrado!");
-					Menu.menuHabitaciones();
 					GestorHabitacion.run(scan);
 
 				
